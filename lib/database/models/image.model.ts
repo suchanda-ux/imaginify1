@@ -1,9 +1,4 @@
-import { transformationTypes } from "@/constants";
-import { model, Model, models, Schema } from "mongoose";
-import { title } from "process";
-
-import { ObjectId } from "mongoose";
-
+import {Document, Schema, model, models } from "mongoose";
 export interface IImage extends Document {
   title: string;
   transformationType: string;
@@ -19,7 +14,7 @@ export interface IImage extends Document {
   author: {
     _id: string
     firstName:string;
-    lastName:String;
+    lastName:string;
   }
   createdAt: Date;
   updatedAt: Date;
