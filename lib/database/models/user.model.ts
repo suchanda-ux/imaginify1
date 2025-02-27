@@ -1,4 +1,3 @@
-// clerkId, email, username, photo, firstName, lastName, planId, creditBalance
 import { Schema, model, models } from "mongoose";
 
 const UserSchema = new Schema({
@@ -6,6 +5,7 @@ const UserSchema = new Schema({
     type: String,
     required: true,
     unique: true,
+    index: true, // 🔹 Ensures fast queries
   },
   email: {
     type: String,
@@ -35,8 +35,7 @@ const UserSchema = new Schema({
     type: Number,
     default: 10,
   },
-});
-
+}, { timestamps: true });
 
 const User = models?.User || model("User", UserSchema);
 export default User;

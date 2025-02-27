@@ -9,10 +9,11 @@ const AddTransformationTypePage = async ({ params }: { params: Promise<{ type: s
   const { type } = await params; 
 
   const { userId } = await auth();
+  console.log("Clerk Authenticated User ID:", userId);
   if (!userId) redirect('/sign-in');
 
   const transformation = transformationTypes[type as keyof typeof transformationTypes]; // Safe indexing.
-  const user = await getUserById(userId);
+  const user = await getUserById("user_2qAMzAtrZNWLvnPF1MMJneXCYp3");
 
   return (
     <>
